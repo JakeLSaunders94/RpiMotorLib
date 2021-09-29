@@ -29,8 +29,9 @@ except ImportError:
     # Mock the GPIO module for dev on Windows, because we don't actually need it anyway.
     import sys
     from unittest.mock import MagicMock
+    sys.modules['RPi.GPIO'] = MagicMock()
     sys.modules['RPi'] = MagicMock()
-    import RPi.GPIO as GPIO
+    import RPi.GPIO
 
 # ==================== CLASS SECTION ===============================
 
